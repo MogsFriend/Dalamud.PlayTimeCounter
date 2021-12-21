@@ -22,6 +22,7 @@ namespace PlayTimeCounter
         public PlayTimeCounter()
         {
             Elapse = new Stopwatch();
+            Elapse.Start();
             Timer = new Timer(CallBack);
             Timer.Change(0, 1000);
             ClientState.Login += ClientState_Login;
