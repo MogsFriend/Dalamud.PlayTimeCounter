@@ -31,7 +31,8 @@ namespace PlayTimeCounter
         private void CallBack(object status)
         {
             var time = Elapse.ElapsedMilliseconds;
-            if ((time / 1000) % 3600 == 0)
+
+            if ((time / 1000) % 3600 == 0 && time > 1000)
             {
                 var elapsed = time / 3600000;
                 var flag = elapsed > 1500;
@@ -56,11 +57,15 @@ namespace PlayTimeCounter
                         message = $"{(flag ? "Plus de 1500 " : elapsed)} heures se sont écoulées depuis que j'ai commencé le jeu.\nL'utilisation excessive de jeux peut interférer avec la vie quotidienne normale.";
                         break;
                 }
-                ChatGui.PrintChat(new()
+
+                if (ClientState.IsLoggedIn)
                 {
-                    Message = message,
-                    Type = XivChatType.SystemMessage
-                });
+                    ChatGui.PrintChat(new()
+                    {
+                        Message = message,
+                        Type = XivChatType.SystemMessage
+                    });
+                }
             }
         }
 
