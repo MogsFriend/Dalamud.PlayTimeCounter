@@ -71,6 +71,8 @@ namespace PlayTimeCounter
 
         public void Dispose()
         {
+            Elapse.Stop();
+            Timer.Dispose();
             ClientState.Login -= ClientState_Login;
             GC.SuppressFinalize(this);
         }
