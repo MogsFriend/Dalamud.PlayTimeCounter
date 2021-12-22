@@ -10,7 +10,7 @@ using System.Threading;
 #pragma warning disable CA1416
 namespace PlayTimeCounter
 {
-    public class PlayTimeCounter : IDalamudPlugin
+    public class PlayTimeCounter : IDalamudPlugin, IDisposable
     {
         [PluginService] public static ChatGui ChatGui { get; private set; } = null!;
         [PluginService] public static ClientState ClientState { get; private set; } = null!;
