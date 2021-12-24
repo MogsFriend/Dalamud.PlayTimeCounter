@@ -46,7 +46,8 @@ namespace PlayTimeCounter
                         break;
                     case Dalamud.ClientLanguage.English:
                         // in logmessage.exd (409)
-                        message = $"You've played more than you should. It's time you got some vitamin D.";
+                        // message = $"You've played more than you should. It's time you got some vitamin D.";
+                        message = $"You've played more than you should. {(flag ? "More then 1500 hours" : elapsed + " hours")} have passed since you started the game.";
                         break;
                     case Dalamud.ClientLanguage.German:
                         // google translate
