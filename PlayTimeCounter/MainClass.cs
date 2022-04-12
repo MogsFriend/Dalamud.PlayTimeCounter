@@ -30,14 +30,13 @@ namespace PlayTimeCounter
 
         private void CallBack(object status)
         {
-            var time = Elapse.ElapsedMilliseconds;
-
-            if ((time / 1000) % 3600 == 0 && time > 1000)
+            long time = Elapse.ElapsedMilliseconds;
+            if (time < 1000) return;
+            string message = "";
+            long elapsed = time / 3600000;
+            bool flag = elapsed > 1500;
+            if (time / 1000 % 3600 == 0)
             {
-                var elapsed = time / 3600000;
-                var flag = elapsed > 1500;
-                var message = "";
-
                 switch (ClientState.ClientLanguage)
                 {
                     case Dalamud.ClientLanguage.Japanese:
@@ -59,13 +58,17 @@ namespace PlayTimeCounter
                         break;
                 }
 
-                if (ClientState.IsLoggedIn)
+                try
                 {
                     ChatGui.PrintChat(new()
                     {
                         Message = message,
                         Type = XivChatType.SystemMessage
                     });
+                }
+                catch
+                {
+
                 }
             }
         }
