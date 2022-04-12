@@ -33,8 +33,7 @@ namespace PlayTimeCounter
         private void Ticker(object sender, System.Timers.ElapsedEventArgs e)
         {
             if (Elapse.ElapsedMilliseconds < 1000) return;
-            bool flag_a = Elapse.ElapsedMilliseconds / 1000 % 3600 == 0;
-            if (!flag_a)
+            if (Elapse.ElapsedMilliseconds / 1000 % 3600 == 0)
             {
                 string message = "";
                 long elapsed = Elapse.ElapsedMilliseconds / 3600000;
