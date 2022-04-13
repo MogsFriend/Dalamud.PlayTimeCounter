@@ -1,6 +1,6 @@
 # PlayTimeCounter
 
-> how long been playing ffxiv? this plugin so mostly useless for lite player.
+> how long been playing ffxiv? this plugin so mostly useless to lite player.
 > 
 > ![image](https://github.com/MogsFriend/PlayTimeCounter/blob/master/resources/info.png?raw=true)
 > 
